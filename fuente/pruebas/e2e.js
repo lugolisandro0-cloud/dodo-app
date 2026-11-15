@@ -33,7 +33,7 @@ async function nueva(browser,w,h,mobile){
   await A.waitForFunction(()=>!document.querySelector("#acceso"),{timeout:20000});
   await sleep(1500);
   const nC=await A.evaluate(()=>Object.keys(D.contactos).length);if(nC!==67)throw new Error("contactos "+nC);
-  const nR=await A.evaluate(()=>RADAR.items.length);if(nR!==7)throw new Error("radar "+nR);
+  const nR=await A.evaluate(()=>RADAR.items.length);if(nR!==JSON.parse(radar).items.length)throw new Error("radar "+nR);
   await A.screenshot({path:out+"/02-radar.png"});
   // la alerta grande aparece al volver a la app (no en la primera instalación); probamos la lógica directo
   await A.evaluate(()=>{vistos={ids:{},urgente:""};revisarAlertas()});await sleep(500);
@@ -104,6 +104,7 @@ async function nueva(browser,w,h,mobile){
   await B.click('nav.tabbar button[data-tab="plata"]');await sleep(300);await B.screenshot({path:out+"/11-compu-plata.png"});
   await B.click('nav.tabbar button[data-tab="paquetes"]');await sleep(400);await B.screenshot({path:out+"/17-compu-paquetes.png",fullPage:true});
   if(await B.evaluate(()=>precioDe("show"))!==4500000)throw new Error("Flor no ve el precio cambiado");
+  const pres=await B.evaluate(()=>[!!document.querySelector("#pkgPres iframe[src*='/preview']"),kitTexto("es").includes("drive.google.com")]);if(!pres[0]||!pres[1])throw new Error("Falta la presentación "+pres);
   await B.click('nav.tabbar button[data-tab="alquiler"]');await sleep(300);await B.screenshot({path:out+"/18-compu-alquiler.png"});
   await B.evaluate(()=>{document.documentElement.dataset.mode="dark"});await B.click('nav.tabbar button[data-tab="radar"]');await sleep(300);await B.screenshot({path:out+"/12-compu-noche.png"});
   // Flor marca postulada y Licha lo ve

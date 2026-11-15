@@ -1,7 +1,7 @@
 {
- "version": "1.1.0",
- "sha256": "a169132a9fae84fe9cff12bc2d54f14fb7228d87c69c1b543cdd9520f4ab5ba7",
- "notas": "Pestañas nuevas: Paquetes (propuestas, precios y armador de presupuestos) y Alquiler (proveedores de sonido, luces, escenarios, backline, pantallas y service).",
+ "version": "1.2.0",
+ "sha256": "da6594d6d35c28d9b195ab3c8544568d380e5c596b7deefa80975a8b2b9cb842",
+ "notas": "Presentación SHOWS DODO (PDF): se ve en Paquetes, se manda por WhatsApp y va en el kit y en los mails.",
  "base": "1.0.0",
  "descarga": "https://github.com/lugolisandro0-cloud/dodo-app/raw/main/descargas/DODO.apk"
 }

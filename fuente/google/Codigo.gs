@@ -375,8 +375,11 @@ function paginaKit_() {
     "<style>body{margin:0;background:#fff3c9;color:#141210;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.5}header{background:#2a9d5c;border-bottom:4px solid #141210;padding:28px 18px}" +
     "h1{margin:0;font-family:'Arial Black',Arial,sans-serif;font-size:56px;color:#fbfaf4;-webkit-text-stroke:2px #141210;text-shadow:4px 4px 0 #141210}header p{margin:6px 0 0;color:#fff;font-weight:700}" +
     "main{max-width:820px;margin:0 auto;padding:18px;display:grid;gap:16px}section{background:#fffdf5;border:3px solid #141210;border-radius:16px;padding:16px;box-shadow:4px 4px 0 #141210}" +
-    "h2{margin:0 0 8px;font-size:20px}a{color:#137a5a;font-weight:700;word-break:break-all}ol{columns:2;column-gap:28px;margin:0;padding-left:22px}@media(max-width:600px){ol{columns:1}h1{font-size:44px}}ul{margin:0;padding-left:20px}</style></head><body>" +
+    "h2{margin:0 0 8px;font-size:20px}a{color:#137a5a;font-weight:700;word-break:break-all}ol{columns:2;column-gap:28px;margin:0;padding-left:22px}@media(max-width:600px){ol{columns:1}h1{font-size:44px}}ul{margin:0;padding-left:20px}a.btn{display:inline-block;background:#ffd23f;color:#141210;border:3px solid #141210;border-radius:999px;padding:8px 16px;text-decoration:none;box-shadow:3px 3px 0 #141210}</style></head><body>" +
     "<header><h1>" + escH(k.nombre || "DODO") + "</h1><p>" + escH(k.frase || "Banda de pop/funk para eventos · Buenos Aires") + "</p></header><main>";
+  const pres = k.presentacion == null ? "https://drive.google.com/file/d/10Itx0oTVjrMm8VSk8OT4NuNux2f6iGMK/view" : String(k.presentacion || "");
+  const pm = pres.match(/drive\.google\.com\/file\/d\/([\w-]+)/);
+  h += sec("Presentación de shows (PDF)", pres ? "<p><a class='btn' href='" + escH(pres) + "' target='_blank' rel='noopener'>Abrir la presentación</a></p>" + (pm ? "<iframe src='https://drive.google.com/file/d/" + pm[1] + "/preview' title='Presentación' loading='lazy' style='width:100%;height:640px;border:3px solid #141210;border-radius:12px;background:#fff'></iframe>" : "") : "");
   h += sec("Quiénes somos", (k.bioEs ? "<p>" + escH(k.bioEs).replace(/\n/g, "<br>") + "</p>" : "") + (k.bioEn ? "<p lang='en'><i>" + escH(k.bioEn).replace(/\n/g, "<br>") + "</i></p>" : ""));
   h += sec("Videos", lineas(k.videos).length ? "<ul>" + lineas(k.videos).map(function (u) { return "<li>" + link(u) + "</li>"; }).join("") + "</ul>" : "");
   h += sec("Formación", k.formacion ? "<p>" + escH(k.formacion).replace(/\n/g, "<br>") + "</p>" : "");

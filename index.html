@@ -10,7 +10,7 @@
 <script>
 /* Actualizaciones: si hay una versión descargada más nueva que la instalada, se usa esa. */
 (function(){
-  var V="1.1.0";window.APP_VERSION=V;window.APP_BASE=window.APP_BASE||V;
+  var V="1.2.0";window.APP_VERSION=V;window.APP_BASE=window.APP_BASE||V;
   function cmp(a,b){a=String(a).split(".").map(Number);b=String(b).split(".").map(Number);for(var i=0;i<3;i++){var d=(a[i]||0)-(b[i]||0);if(d)return d>0?1:-1}return 0}
   window.cmpVersion=cmp;
   if(window.__dodoSwap)return;
@@ -340,6 +340,7 @@ dialog::backdrop{background:rgba(10,8,6,.6)}
   <section class="view hidden" id="view-paquetes">
     <div class="radar-when"><span id="propMeta">Paquetes y precios de DODO</span></div>
     <div id="propLema"></div>
+    <div class="panel" id="pkgPres"></div>
     <div class="pkgs" id="pkgList"></div>
     <div class="row2"><button class="btn primary" id="pkgArmar">Armar un presupuesto</button><button class="btn" id="pkgPrecios">Cambiar precios</button></div>
     <div class="panel" id="pkgExtras"></div>
@@ -426,6 +427,10 @@ const lsSave=()=>lsSet(LS_DATOS,D);
 const lista=col=>Object.entries(D[col]).map(([id,v])=>({...v,id}));
 const contactos=()=>lista("contactos");
 const kit=()=>D.config.kit||{};
+const PRES_DEF="https://drive.google.com/file/d/10Itx0oTVjrMm8VSk8OT4NuNux2f6iGMK/view";
+const presLink=()=>{const k=kit();return k.presentacion==null?PRES_DEF:(k.presentacion||"")};
+const presPreview=u=>{const m=String(u||"").match(/drive\.google\.com\/file\/d\/([\w-]+)/);return m?"https://drive.google.com/file/d/"+m[1]+"/preview":""};
+const textoPres=()=>`🎺 DODO · Presentación de shows\nAcá tenés nuestra propuesta con los formatos, qué incluye cada uno y las condiciones:\n${presLink()}`;
 const banda=()=>D.config.banda||{};
 function guardar(col,id,data){
   if(data){const{id:_,...r}=data;D[col][id]=r}else delete D[col][id];
@@ -576,6 +581,10 @@ function renderPaquetes(){
       k.ideal?el("div",{class:"note"},"Ideal para: "+k.ideal):null,
       el("div",{class:"btns"},el("button",{class:"btn "+(k.destacado?"hot":"primary"),onclick:()=>abrirPresupuesto(k.id)},"Presupuesto"),el("button",{class:"btn",onclick:()=>copiar(textoPaquete(k),"Paquete copiado: pegalo en WhatsApp")},"Copiar"))));
   });
+  const pl=presLink(),pv=presPreview(pl);
+  $("#pkgPres").replaceChildren(el("h3",{},"Presentación SHOWS DODO (PDF)"),
+    pl?el("div",{class:"op-btns"},el("button",{class:"btn hot",onclick:()=>abrirLink(pl)},"Ver presentación"),el("button",{class:"btn primary",onclick:()=>abrirLink("https://wa.me/?text="+encodeURIComponent(textoPres()))},"Mandar por WhatsApp"),el("button",{class:"btn",onclick:()=>copiar(pl,"Link de la presentación copiado")},"Copiar link")):el("p",{class:"note",style:"margin:0"},"Cargá el link del PDF en Más › Kit de prensa."),
+    pv?el("iframe",{src:pv,title:"Presentación SHOWS DODO",loading:"lazy",allow:"autoplay",style:"width:100%;height:520px;border:3px solid var(--line);border-radius:12px;background:#fff"}):null);
   const ex=P.extras||[];
   $("#pkgExtras").replaceChildren(el("h3",{},"Extras para sumar"),el("div",{class:"per"},ex.map(x=>el("div",{},el("span",{},x.nombre),el("b",{class:"money"},money(precioDe(x.id),"ARS"))))),
     P.lanzamiento?el("div",{class:"todo"},el("small",{},"Primeras fechas"),P.lanzamiento.texto):null);
@@ -968,7 +977,7 @@ function fichaMov(m){
 }
 
 /* ================= kit de prensa ================= */
-const KIT_CAMPOS=[["nombre","Nombre de la banda","DODO"],["frase","Frase corta","Banda de pop/funk para eventos · Buenos Aires"],["bioEs","Bio en español","",1],["bioEn","Bio en inglés (para cruceros)","",1],["bioPt","Bio en portugués (para Brasil)","",1],["formacion","Formación (nombre e instrumento de cada uno)","Licha – guitarra\nFlor – voz\n…",1],["formatos","Formatos que ofrecen","Acústico de recepción (2-3 músicos)\nBanda completa de fiesta (5 músicos)\nCombinado",1],["videos","Videos en vivo (un link por línea)","https://youtu.be/…",1],["fotos","Fotos (links a una carpeta o a cada foto)","",1],["repertorio","Repertorio (un tema por línea: Artista – Tema)","Bruno Mars – Uptown Funk\nEarth, Wind & Fire – September",1],["rider","Rider técnico","",1],["contacto","Contacto (mail, WhatsApp, Instagram; uno por línea)","",1],["disponibilidad","Disponibilidad para cruceros","Desde marzo 2027, contratos de 4 a 6 meses"]];
+const KIT_CAMPOS=[["nombre","Nombre de la banda","DODO"],["frase","Frase corta","Banda de pop/funk para eventos · Buenos Aires"],["presentacion","Presentación en PDF (link de Drive, con acceso para cualquiera con el link)","https://drive.google.com/file/d/…"],["bioEs","Bio en español","",1],["bioEn","Bio en inglés (para cruceros)","",1],["bioPt","Bio en portugués (para Brasil)","",1],["formacion","Formación (nombre e instrumento de cada uno)","Licha – guitarra\nFlor – voz\n…",1],["formatos","Formatos que ofrecen","Acústico de recepción (2-3 músicos)\nBanda completa de fiesta (5 músicos)\nCombinado",1],["videos","Videos en vivo (un link por línea)","https://youtu.be/…",1],["fotos","Fotos (links a una carpeta o a cada foto)","",1],["repertorio","Repertorio (un tema por línea: Artista – Tema)","Bruno Mars – Uptown Funk\nEarth, Wind & Fire – September",1],["rider","Rider técnico","",1],["contacto","Contacto (mail, WhatsApp, Instagram; uno por línea)","",1],["disponibilidad","Disponibilidad para cruceros","Desde marzo 2027, contratos de 4 a 6 meses"]];
 const lineas=t=>String(t||"").split(/\n+/).map(x=>x.trim()).filter(Boolean);
 const kitLink=()=>sync.url()&&kit().publico?sync.url()+"?kit=1":"";
 function abrirKit(){
@@ -977,10 +986,10 @@ function abrirKit(){
   const checks=[["Video en vivo",lineas(k.videos).length>0],["Repertorio de 200 temas o más ("+temas+")",temas>=200],["Bio en inglés",!!k.bioEn],["Formación",!!k.formacion],["Fotos",lineas(k.fotos).length>0],["Rider técnico",!!k.rider],["Contacto",!!k.contacto]];
   const form=el("form",{class:"dlg",style:"padding:0",onsubmit:e=>{e.preventDefault();const d={...kit()};KIT_CAMPOS.forEach(([c])=>d[c]=$("#k_"+c).value.trim());d.publico=$("#k_pub").checked;guardar("config","kit",d);toast("Kit guardado");abrirKit()}},
     el("div",{class:"panel",style:"box-shadow:none"},el("h3",{},"¿Qué falta para postular?"),el("div",{class:"check"},checks.map(([t,ok])=>el("div",{},el("span",{class:ok?"ok":"no"},ok?"✓":"✗"),t)))),
-    el("div",{class:"op-btns"},el("button",{type:"button",class:"btn hot",onclick:()=>copiar(kitTexto("es"),"Kit copiado: pegalo en un mail o WhatsApp")},"Copiar kit"),el("button",{type:"button",class:"btn",onclick:()=>copiar(lineas(kit().repertorio).map((t,i)=>(i+1)+". "+t).join("\n"),"Lista de temas copiada")},"Copiar temas")),
+    el("div",{class:"op-btns"},el("button",{type:"button",class:"btn hot",onclick:()=>copiar(kitTexto("es"),"Kit copiado: pegalo en un mail o WhatsApp")},"Copiar kit"),el("button",{type:"button",class:"btn",onclick:()=>copiar(lineas(kit().repertorio).map((t,i)=>(i+1)+". "+t).join("\n"),"Lista de temas copiada")},"Copiar temas"),presLink()?el("button",{type:"button",class:"btn",onclick:()=>abrirLink(presLink())},"Ver presentación PDF"):null),
     el("label",{class:"f",style:"display:flex;gap:10px;align-items:center;color:var(--ink)"},el("input",{type:"checkbox",id:"k_pub",style:"width:24px;min-height:24px",...(k.publico?{checked:true}:{})}),"Publicar la página del kit (cualquiera con el link la puede ver)"),
     kitLink()?el("div",{class:"op-btns"},el("button",{type:"button",class:"btn primary",onclick:()=>copiar(kitLink(),"Link del kit copiado")},"Copiar link del kit"),el("button",{type:"button",class:"btn",onclick:()=>abrirLink(kitLink())},"Ver la página")):el("p",{class:"note",style:"margin:0"},"Cuando lo publiques, acá aparece el link para mandar en cada postulación."),
-    el("div",{class:"fields"},KIT_CAMPOS.map(([c,lab,ph,big])=>campo(lab,big?area("k_"+c,k[c]==null&&c==="nombre"?"DODO":k[c],{placeholder:ph,rows:c==="repertorio"?10:4}):inp("k_"+c,k[c]==null&&c==="nombre"?"DODO":k[c],{placeholder:ph}),true))),
+    el("div",{class:"fields"},KIT_CAMPOS.map(([c,lab,ph,big])=>campo(lab,big?area("k_"+c,k[c]==null&&c==="nombre"?"DODO":k[c]==null&&c==="presentacion"?PRES_DEF:k[c],{placeholder:ph,rows:c==="repertorio"?10:4}):inp("k_"+c,k[c]==null&&c==="nombre"?"DODO":k[c]==null&&c==="presentacion"?PRES_DEF:k[c],{placeholder:ph}),true))),
     el("div",{class:"dlg-foot"},el("span"),el("button",{type:"submit",class:"btn primary"},"Guardar kit")));
   abrirSheet("Kit de prensa",form);
 }
@@ -991,6 +1000,7 @@ function kitTexto(lang){
   if(lineas(k.videos).length)p.push(t[0]+":\n"+lineas(k.videos).join("\n"));
   if(k.formacion)p.push(t[1]+":\n"+k.formacion);if(k.formatos)p.push(t[2]+":\n"+k.formatos);
   const n=lineas(k.repertorio).length;if(n)p.push(t[3]+": "+n+" "+t[4]+(kitLink()?" ("+kitLink()+")":""));
+  if(presLink())p.push((L==="en"?"Show presentation (PDF)":L==="pt"?"Apresentação (PDF)":"Presentación (PDF)")+": "+presLink());
   if(kitLink())p.push(t[6]+": "+kitLink());if(k.contacto)p.push(t[5]+":\n"+k.contacto);
   return p.join("\n\n");
 }
@@ -1025,12 +1035,12 @@ function borrador(lang,{op,contacto,esCrucero}){
   if(lang==="pt"){
     const bio=k.bioPt||"Somos uma banda de pop/funk de Buenos Aires, Argentina, especializada em casamentos e eventos.";
     return{asunto:`${nom} – banda ao vivo de pop/funk para eventos`,
-      cuerpo:`Olá${quien?" "+quien:org?", equipe "+org:""}!\n\n${bio}\n\n${k.formacion?"Formação:\n"+k.formacion+"\n\n":""}${vid?"Vídeo ao vivo: "+vid+"\n":""}${n?"Repertório: "+n+" músicas\n":""}${link?"Kit completo: "+link+"\n":""}\nAdoraríamos tocar nos seus eventos${pais(op,contacto)}. Podemos enviar uma proposta ou marcar uma conversa?\n\nAbraço,\n${firma}`};
+      cuerpo:`Olá${quien?" "+quien:org?", equipe "+org:""}!\n\n${bio}\n\n${k.formacion?"Formação:\n"+k.formacion+"\n\n":""}${vid?"Vídeo ao vivo: "+vid+"\n":""}${n?"Repertório: "+n+" músicas\n":""}${link?"Kit completo: "+link+"\n":""}${presLink()?"Apresentação dos shows (PDF): "+presLink()+"\n":""}\nAdoraríamos tocar nos seus eventos${pais(op,contacto)}. Podemos enviar uma proposta ou marcar uma conversa?\n\nAbraço,\n${firma}`};
   }
   const bio=k.bioEs||"Somos una banda de pop/funk de Buenos Aires que toca en casamientos, bar y bat mitzvahs, fiestas de 15 y eventos corporativos.";
   const formatos=k.formatos?"Tenemos estos formatos:\n"+k.formatos+"\n\n":"";
   return{asunto:`${nom} – banda en vivo de pop/funk para ${contacto&&contacto.cat==="hotel"?"los eventos de "+(contacto.name||"ustedes"):"eventos"}`,
-    cuerpo:`Hola${quien?" "+quien:org?", equipo de "+org:""}, ¿cómo están?\n\n${bio}\n\n${formatos}${vid?"Les dejamos un video en vivo: "+vid+"\n":""}${n?"Repertorio de "+n+" temas\n":""}${link?"Kit completo (temas, fotos y rider): "+link+"\n":""}\nNos encantaría sumarnos como opción de música en vivo${contacto&&contacto.cat==="planner"?" para sus casamientos y eventos":""}. ¿Les podemos mandar una propuesta o coordinar una llamada?\n\n¡Gracias!\n${firma}`};
+    cuerpo:`Hola${quien?" "+quien:org?", equipo de "+org:""}, ¿cómo están?\n\n${bio}\n\n${formatos}${vid?"Les dejamos un video en vivo: "+vid+"\n":""}${n?"Repertorio de "+n+" temas\n":""}${link?"Kit completo (temas, fotos y rider): "+link+"\n":""}${presLink()?"Presentación de shows y paquetes (PDF): "+presLink()+"\n":""}\nNos encantaría sumarnos como opción de música en vivo${contacto&&contacto.cat==="planner"?" para sus casamientos y eventos":""}. ¿Les podemos mandar una propuesta o coordinar una llamada?\n\n¡Gracias!\n${firma}`};
 }
 function pais(op,c){const p=(op&&op.country)||(c&&c.country);return p==="Brasil"?" no Brasil":""}
 
