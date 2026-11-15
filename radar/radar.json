@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-15T04:40:00Z",
+ "actualizado": "2026-11-15T18:47:25Z",
  "items": [
   {
    "id": "ew-party-bands-4-5-6",
@@ -16,20 +16,6 @@
    "source": "entertainersworldwidejobs.com"
   },
   {
-   "id": "ew-luxury-party-bands",
-   "title": "Party bands para contratos en cruceros de lujo",
-   "org": "Entertainers Worldwide (agencia, solo miembros)",
-   "kind": "crucero",
-   "country": "Internacional",
-   "deadline": "2027-02-02",
-   "url": "https://www.entertainersworldwidejobs.com/function-party-band-jobs/cruise-ship",
-   "summary": "Buscan party bands de 4 y 6 integrantes, dúos y pianistas. Postulación online abierta a todo el mundo.",
-   "action": "Postular con el mismo paquete de promo; si postulan a las dos, aclarar que son 5 y que el teclado es opcional.",
-   "score": 8,
-   "foundAt": "2026-11-15",
-   "source": "entertainersworldwidejobs.com"
-  },
-  {
    "id": "ew-live-bands",
    "title": "Bandas en vivo para cruceros (varias agencias)",
    "org": "Entertainers Worldwide",
@@ -40,6 +26,20 @@
    "summary": "Listado de 51 avisos de bandas en vivo para cruceros; el que más tarde cierra, cierra el 13/01/2027.",
    "action": "Revisar el listado y postular a los que piden bandas de 4 a 6 integrantes.",
    "score": 7,
+   "foundAt": "2026-11-15",
+   "source": "entertainersworldwidejobs.com"
+  },
+  {
+   "id": "ew-luxury-party-bands",
+   "title": "Party bands para contratos en cruceros de lujo",
+   "org": "Entertainers Worldwide (agencia, solo miembros)",
+   "kind": "crucero",
+   "country": "Internacional",
+   "deadline": "2027-02-02",
+   "url": "https://www.entertainersworldwidejobs.com/function-party-band-jobs/cruise-ship",
+   "summary": "Buscan party bands de 4 y 6 integrantes, dúos y pianistas. Postulación online abierta a todo el mundo.",
+   "action": "Postular con el mismo paquete de promo; si postulan a las dos, aclarar que son 5 y que el teclado es opcional.",
+   "score": 8,
    "foundAt": "2026-11-15",
    "source": "entertainersworldwidejobs.com"
   },
@@ -98,6 +98,20 @@
    "score": 5,
    "foundAt": "2026-11-15",
    "source": "montevideo.com.uy / forbesargentina.com"
+  },
+  {
+   "id": "excellent-party-bands-4-6",
+   "title": "Party bands de 4 y 6 para cruceros",
+   "org": "Excellent Entertainment",
+   "kind": "crucero",
+   "country": "Internacional (online)",
+   "deadline": "",
+   "url": "https://excellent-recruitment.breezy.hr/p/b6aad7e4957001-party-band",
+   "summary": "Agencia británica que recluta party bands de 4 y 6 integrantes para cruceros; pide repertorio variado de más de 200 temas.",
+   "action": "Postularse online con video en vivo, setlist de 200+ temas y fotos de la banda.",
+   "score": 7,
+   "foundAt": "2026-11-15",
+   "source": "excellent-recruitment.breezy.hr"
   }
  ]
 }
