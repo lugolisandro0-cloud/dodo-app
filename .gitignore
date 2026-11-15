@@ -1,0 +1,4 @@
+fuente/www/
+fuente/pruebas/capturas/
+node_modules/
+*.keystore

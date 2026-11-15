@@ -1,0 +1,9 @@
+{
+  "name": "dodo-central",
+  "productName": "DODO",
+  "version": "1.0.0",
+  "description": "Central de DODO: radar de oportunidades, contactos y plata",
+  "main": "main.js",
+  "author": "DODO",
+  "private": true
+}

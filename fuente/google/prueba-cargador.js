@@ -1,0 +1,11 @@
+const assert=require("assert"),fs=require("fs"),crypto=require("crypto");
+const {crearEntorno}=require("./simulador");
+const code=fs.readFileSync(__dirname+"/Codigo.gs","utf8").replace("__VERSION_SERVIDOR__","1.0.0");
+const sha=crypto.createHash("sha256").update(code).digest("hex");
+const mails=[];
+const env=crearEntorno({cargador:true,mails,triggers:[],fuente:u=>u.includes("version.json")?JSON.stringify({version:"1.0.0",sha256:sha}):u.includes("Codigo.gs")?code:u.includes("radar.json")?"[]":null});
+env.ctx.autorizar();
+const r=env.post({accion:"estado"});assert(r.ok&&r.hayCuentas===false);
+const a=env.post({accion:"crearCuenta",nombre:"Licha",contrasena:"secreta1"});assert(a.ok);
+env.ctx.radarCadaHora();env.ctx.resumenLunes();env.ctx.instalarAvisos();
+console.log("Cargador: OK");
