@@ -1,0 +1,69 @@
+{
+ "actualizado": "2026-11-15",
+ "lema": "La banda de pop/funk para que la pista no pare.",
+ "dolar": 1570,
+ "paquetes": [
+  {
+   "id": "coctel",
+   "nombre": "Ceremonia / Cóctel",
+   "corto": "Trío acústico",
+   "precio": 2200000,
+   "rango": "$1,8–2,5 M",
+   "duracion": "60 a 90 min",
+   "musicos": "3 músicos",
+   "ideal": "Entrada, firma, recepción y cóctel. Bodas íntimas, aniversarios, eventos de empresa.",
+   "incluye": ["Trío acústico (voz, guitarra y teclado o saxo)", "Sonido chico propio", "Tema de entrada a elección", "Repertorio pop, soul y bossa en versión suave"]
+  },
+  {
+   "id": "show",
+   "nombre": "Show DODO",
+   "corto": "Banda completa",
+   "precio": 4200000,
+   "rango": "$3,5–5 M",
+   "duracion": "2 bloques (90 a 120 min)",
+   "musicos": "5 músicos",
+   "ideal": "La fiesta: bodas, bar/bat mitzvah, fiestas de 15, 50 y aniversarios.",
+   "destacado": true,
+   "incluye": ["Banda completa de pop/funk", "Sonido y luces de escenario", "Bloque de hora loca o cumbia para que nadie quede afuera", "Reunión previa para armar la lista", "Audio mezclado del primer baile (o un tema) en 7 días"]
+  },
+  {
+   "id": "noche",
+   "nombre": "Noche completa",
+   "corto": "Todo resuelto",
+   "precio": 8500000,
+   "rango": "$7–10 M",
+   "duracion": "Toda la noche",
+   "musicos": "5 músicos + DJ",
+   "ideal": "Para quien quiere un solo proveedor de música desde la ceremonia hasta el final.",
+   "incluye": ["Ceremonia y cóctel con el trío", "Show DODO de 2 bloques", "DJ integrado entre bloques: la pista nunca queda vacía", "Hora hebrea, hora loca y entradas coordinadas con el salón", "Grabación del show completo, mezclada", "Un tema a pedido que la banda aprende para el evento"]
+  }
+ ],
+ "extras": [
+  {"id": "hora", "nombre": "Hora extra de banda", "precio": 900000},
+  {"id": "tema", "nombre": "Tema a pedido (aprenderlo para el evento)", "precio": 250000},
+  {"id": "grab", "nombre": "Grabación del show completo, mezclada", "precio": 600000},
+  {"id": "dj", "nombre": "DJ el resto de la noche", "precio": 1800000},
+  {"id": "trio", "nombre": "Trío para ceremonia y cóctel", "precio": 1500000}
+ ],
+ "lanzamiento": {"descuento": 15, "texto": "Precio de lanzamiento: 15% menos en las primeras fechas, a cambio de una reseña y permiso para filmar el show."},
+ "condiciones": [
+  "Seña del 30 al 50% para reservar la fecha; el saldo, antes del evento.",
+  "Hora extra con precio fijo (el valor de la lista).",
+  "Viáticos fuera de 30 km de CABA: se cotizan aparte.",
+  "Llegamos 2 a 3 horas antes para armar y probar sonido.",
+  "Rider técnico de una página: lo mandamos al salón con anticipación.",
+  "Paquete grande: se puede pagar en cuotas con tarjeta."
+ ],
+ "porque": [
+  "Somos banda de pop/funk, no otra banda «multiestilo»: groove de Bruno Mars, Jamiroquai, Earth Wind & Fire y Dua Lipa.",
+  "Precio claro y publicado: la mayoría de la competencia dice «a consultar».",
+  "Te llevás la grabación del show mezclada por un ingeniero de mezcla: nadie más la ofrece.",
+  "Repertorio en español, inglés y portugués para invitados de afuera."
+ ],
+ "mercado": [
+  {"pais": "Argentina", "dato": "Banda de 3–4 músicos en CABA: $2,5–5 M por 2 h. Banda de 5–7: $5–10 M o más. Banda + DJ: $6–12 M.", "fuente": "PortalCasamientos (may. 2026)"},
+  {"pais": "Brasil", "dato": "São Paulo: de R$2.000–8.000 hasta R$12.000–30.000 por show de 3 h.", "fuente": "Casamentos.com.br"},
+  {"pais": "Chile", "dato": "Banda u orquesta para matrimonio: CLP 1–2 M.", "fuente": "CuantoMeCuesta (abr. 2026)"},
+  {"pais": "Uruguay", "dato": "Banda de cumbia de 8 músicos, 45 min: $U 55.000 (baja) y $U 75.000 (nov–dic).", "fuente": "Otero.uy"}
+ ]
+}

@@ -14,7 +14,7 @@ async function nueva(browser,w,h,mobile){
   await p.setRequestInterception(true);
   p.on("request",q=>{const u=q.url();
     if(u.startsWith(URL_SRV)){if(q.method()==="POST"){const body=JSON.parse(q.postData());const out=env.post(body);q.respond({status:200,contentType:"application/json",headers:{"access-control-allow-origin":"*"},body:JSON.stringify(out)})}else q.respond({status:200,contentType:"application/json",body:"{}"});return}
-    if(u.includes("raw.githubusercontent.com")){if(u.includes("radar.json"))return q.respond({status:200,contentType:"application/json",headers:{"access-control-allow-origin":"*"},body:radar});if(u.includes("contactos.json"))return q.respond({status:200,contentType:"application/json",headers:{"access-control-allow-origin":"*"},body:semilla});return q.respond({status:404,headers:{"access-control-allow-origin":"*"},body:""})}
+    if(u.includes("raw.githubusercontent.com")){if(u.includes("radar.json"))return q.respond({status:200,contentType:"application/json",headers:{"access-control-allow-origin":"*"},body:radar});if(u.includes("contactos.json"))return q.respond({status:200,contentType:"application/json",headers:{"access-control-allow-origin":"*"},body:semilla});for(const f of ["propuestas/propuestas.json","proveedores/proveedores.json"])if(u.includes(f))return q.respond({status:200,contentType:"application/json",headers:{"access-control-allow-origin":"*"},body:fs.readFileSync(path.join(R,f),"utf8")});return q.respond({status:404,headers:{"access-control-allow-origin":"*"},body:""})}
     q.continue()});
   const errs=[];p.on("pageerror",e=>errs.push(e.message));p.on("console",m=>{if(m.type()==="error")errs.push(m.text())});
   p.errs=errs;return p;
@@ -67,6 +67,30 @@ async function nueva(browser,w,h,mobile){
   const asunto=await A.$eval("#mm_asunto",e=>e.value);if(!/Musicians for Cruises/.test(asunto))throw new Error("asunto "+asunto);
   await A.screenshot({path:out+"/10-mail.png"});
   await A.evaluate(()=>sheet.close());
+  // paquetes y presupuesto
+  await A.click('nav.tabbar button[data-tab="paquetes"]');await A.waitForFunction(()=>document.querySelectorAll("#pkgList .pkg").length===3,{timeout:8000});
+  await A.screenshot({path:out+"/13-paquetes.png"});await A.screenshot({path:out+"/13b-paquetes-todo.png",fullPage:true});
+  await A.evaluate(()=>abrirPresupuesto("show"));await sleep(200);
+  await A.type("#q_cli","Sofi y Martín");await A.type("#q_ev","su boda");await A.click("#q_ex_grab");await A.click("#q_lanz");await sleep(200);
+  const totTxt=await A.$eval(".quote-total b",e=>e.textContent);if(!/4\.080\.000/.test(totTxt))throw new Error("total presupuesto "+totTxt);
+  await A.screenshot({path:out+"/14-presupuesto.png"});
+  const nMov=await A.evaluate(()=>Object.keys(D.movimientos).length);
+  await A.evaluate(()=>[...document.querySelectorAll("#sheetBody button")].find(b=>/Anotar en Plata/.test(b.textContent)).click());await sleep(300);
+  if(await A.evaluate(()=>Object.keys(D.movimientos).length)!==nMov+1)throw new Error("no anotó el cobro");
+  await A.evaluate(()=>abrirPrecios());await sleep(200);await A.evaluate(()=>{$("#pr_show").value="4500000"});
+  await A.evaluate(()=>[...document.querySelectorAll("#sheetBody button")].find(b=>b.textContent==="Guardar").click());await sleep(300);
+  if(await A.evaluate(()=>precioDe("show"))!==4500000)throw new Error("precio no guardado");
+  // alquiler
+  await A.evaluate(()=>{localStorage.setItem("dodo-prov-vistos",JSON.stringify({sondar:1}));badgeProv()});
+  const bdg=await A.$eval("#bProv",e=>e.textContent);if(!(Number(bdg)>5))throw new Error("badge proveedores "+bdg);
+  await A.click('nav.tabbar button[data-tab="alquiler"]');await sleep(300);
+  await A.screenshot({path:out+"/15-alquiler.png"});
+  if(await A.$eval("#bProv",e=>e.textContent))throw new Error("badge no se limpió");
+  await A.click('#provFilt button[data-v="service"]');await sleep(200);
+  const nServ=await A.$$eval("#provList .card",x=>x.length);if(nServ<4)throw new Error("filtro service "+nServ);
+  await A.screenshot({path:out+"/16-alquiler-service.png",fullPage:true});
+  await A.evaluate(()=>[...document.querySelectorAll("#provList .link-btn")][0].click());await sleep(300);
+  if(!(await A.evaluate(()=>contactos().some(c=>c.cat==="proveedor"))))throw new Error("no guardó proveedor");
   // invitación
   const inv=env.post({accion:"invitar",token:await A.evaluate(()=>JSON.parse(localStorage.getItem("dodo-sesion")).token)});
   const B=await nueva(browser,1280,900,false);
@@ -76,8 +100,11 @@ async function nueva(browser,w,h,mobile){
   await B.type("#a_c",inv.codigo);await B.type("#a_n","Flor");await B.type("#a_p","secreta2");await B.click("#acceso .btn.primary");
   await B.waitForFunction(()=>!document.querySelector("#acceso"),{timeout:20000});await sleep(1500);
   const nB=await B.evaluate(()=>[Object.keys(D.contactos).length,Object.keys(D.movimientos).length,!!(D.config.kit&&D.config.kit.publico)]);
-  if(nB[0]!==67||nB[1]!==2||!nB[2])throw new Error("Flor no ve los datos "+nB);
+  if(nB[0]!==68||nB[1]!==3||!nB[2])throw new Error("Flor no ve los datos "+nB);
   await B.click('nav.tabbar button[data-tab="plata"]');await sleep(300);await B.screenshot({path:out+"/11-compu-plata.png"});
+  await B.click('nav.tabbar button[data-tab="paquetes"]');await sleep(400);await B.screenshot({path:out+"/17-compu-paquetes.png",fullPage:true});
+  if(await B.evaluate(()=>precioDe("show"))!==4500000)throw new Error("Flor no ve el precio cambiado");
+  await B.click('nav.tabbar button[data-tab="alquiler"]');await sleep(300);await B.screenshot({path:out+"/18-compu-alquiler.png"});
   await B.evaluate(()=>{document.documentElement.dataset.mode="dark"});await B.click('nav.tabbar button[data-tab="radar"]');await sleep(300);await B.screenshot({path:out+"/12-compu-noche.png"});
   // Flor marca postulada y Licha lo ve
   await B.evaluate(()=>setOp(RADAR.items[0],"postulado"));await sleep(1500);

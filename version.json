@@ -1,7 +1,7 @@
 {
- "version": "1.0.0",
- "sha256": "3d729b5e94efa36beb811d042e11b496c66c9430391b72a84c4fd98f7abff3b8",
- "notas": "Primera versión",
+ "version": "1.1.0",
+ "sha256": "a169132a9fae84fe9cff12bc2d54f14fb7228d87c69c1b543cdd9520f4ab5ba7",
+ "notas": "Pestañas nuevas: Paquetes (propuestas, precios y armador de presupuestos) y Alquiler (proveedores de sonido, luces, escenarios, backline, pantallas y service).",
  "base": "1.0.0",
  "descarga": "https://github.com/lugolisandro0-cloud/dodo-app/raw/main/descargas/DODO.apk"
 }

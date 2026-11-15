@@ -1,0 +1,259 @@
+{
+ "actualizado": "2026-11-15",
+ "proxima": "2026-12-15",
+ "nota": "Lista para alquilar lo que todavía no tenemos y para reemplazar un equipo que se rompa. Los precios son de lista publicados en la web del proveedor: confirmar siempre por WhatsApp antes de reservar.",
+ "rubros": [
+  {"k": "sonido", "n": "Sonido"},
+  {"k": "luces", "n": "Luces"},
+  {"k": "escenario", "n": "Escenarios y tarimas"},
+  {"k": "backline", "n": "Instrumentos y backline"},
+  {"k": "pantallas", "n": "Pantallas y escenografía"},
+  {"k": "service", "n": "Service y reparación"}
+ ],
+ "emergencia": [
+  "Se rompió algo el día del evento: primero SonáPro Backline (atiende de lunes a lunes) o Alquiler de Cámaras (precio por día publicado, por WhatsApp).",
+  "Si es un parlante o una potencia y el evento es en zona norte: Audium (retiro en Saavedra) o Eventos & Tarimas (Vicente López).",
+  "Después del evento, el equipo roto va al service: Zona Acústica para parlantes y drivers; Teslab o SuperService para consolas, interfaces y potencias.",
+  "Antes de cada temporada, guardar acá abajo los proveedores que mejor respondieron (botón «Guardar en contactos»)."
+ ],
+ "items": [
+  {
+   "id": "alquilerdecamaras",
+   "name": "Alquiler de Cámaras · Sonido",
+   "rubros": ["sonido"],
+   "zona": "Buenos Aires",
+   "que": "Alquiler por día de consolas, parlantes activos, subwoofers, micrófonos inalámbricos y monitores de piso. Precio de cada equipo publicado en la web.",
+   "precios": [
+    {"item": "Consola digital Allen & Heath CQ 18T", "precio": "$50.000/día"},
+    {"item": "Parlante Electro Voice 15\" EKX 1000 W", "precio": "$75.000/día"},
+    {"item": "Parlante JBL EON 15\" activo", "precio": "$50.000/día"},
+    {"item": "Sub JBL EON o Electro Voice 18\" 800 W", "precio": "$75.000/día"},
+    {"item": "Monitor de piso 15\" activo 450 W", "precio": "$45.000/día"},
+    {"item": "Inalámbrico de mano Shure/JTS", "precio": "$35.000/día"}
+   ],
+   "whatsapp": "5491156308000",
+   "web": "https://www.alquilerdecamaras.com.ar/equipos/sonido/",
+   "fuente": "alquilerdecamaras.com.ar (15/11/2026)"
+  },
+  {
+   "id": "sondar",
+   "name": "Sondar Sonidos",
+   "rubros": ["sonido", "luces", "escenario", "backline", "pantallas"],
+   "zona": "CABA",
+   "que": "20 años en el rubro: sonido, iluminación, escenarios, tarimas, pisos, pistas, backline para bandas, pantallas y proyectores. Todo en un solo proveedor.",
+   "tel": "1136372044",
+   "web": "https://www.ineventos.com/ar/sondarsonidos",
+   "fuente": "ineventos.ar"
+  },
+  {
+   "id": "audium",
+   "name": "Audium",
+   "rubros": ["sonido", "luces", "escenario", "pantallas"],
+   "zona": "Saavedra, CABA",
+   "que": "En el mercado desde 1985. Escenarios móviles para grupos musicales (retiro en Saavedra o con traslado y armado en CABA y GBA), sonido, iluminación y pantallas.",
+   "whatsapp": "5491155814503",
+   "web": "https://www.audium.com.ar/",
+   "nota": "Para cotizar piden fecha, localidad y tamaño y altura del escenario.",
+   "fuente": "audiumescenarios.com.ar"
+  },
+  {
+   "id": "eventosytarimas",
+   "name": "Eventos & Tarimas",
+   "rubros": ["escenario"],
+   "zona": "Vicente López",
+   "que": "Escenarios y pasarelas para eventos. Es el más cerca de Villa Martelli.",
+   "tel": "1156157895",
+   "web": "https://www.ineventos.com/ar/eventosytarimas",
+   "fuente": "ineventos.ar"
+  },
+  {
+   "id": "tye",
+   "name": "TYE · Tarimas y Escenarios",
+   "rubros": ["escenario"],
+   "zona": "Boulogne (San Isidro)",
+   "que": "Tarimas modulares y escenarios para shows, con armado. Blandengues 230, Boulogne.",
+   "whatsapp": "5491133216062",
+   "web": "https://alquilerdetarimasyescenarios.com.ar/",
+   "fuente": "alquilerdetarimasyescenarios.com.ar"
+  },
+  {
+   "id": "ultraestructuras",
+   "name": "Ultraestructuras",
+   "rubros": ["escenario"],
+   "zona": "CABA y GBA",
+   "que": "Escenarios modulares, tarimas y plataformas con montaje y desmontaje.",
+   "tel": "1137836985",
+   "web": "https://ultraestructuras.com.ar/alquiler-de-escenarios/",
+   "fuente": "ultraestructuras.com.ar"
+  },
+  {
+   "id": "eiffel",
+   "name": "Eventos Eiffel",
+   "rubros": ["escenario", "pantallas"],
+   "zona": "San Isidro · todo el país",
+   "que": "Escenarios con y sin techo (Layher), tribunas, vallas y pantallas LED con operador. Más para eventos grandes o al aire libre.",
+   "web": "https://eventoseiffel.com/",
+   "fuente": "eventoseiffel.com"
+  },
+  {
+   "id": "sonapro",
+   "name": "SonáPro Backline",
+   "rubros": ["backline", "escenario"],
+   "zona": "Buenos Aires",
+   "que": "Alquiler de baterías, platillos, amplificadores de guitarra y bajo, teclados, percusión, soportes y tarimas. Disponibles de lunes a lunes: el primero a llamar si se rompe algo.",
+   "tel": "1135226560",
+   "web": "https://www.sonaprobackline.com/",
+   "fuente": "sonaprobackline.com"
+  },
+  {
+   "id": "gusteca",
+   "name": "Gusteca Drums",
+   "rubros": ["backline"],
+   "zona": "Villa Crespo, CABA",
+   "que": "Showroom para bateristas con sala de ensayo y alquiler de backline (baterías). Aguirre 924.",
+   "whatsapp": "5491161690642",
+   "email": "gustecadrums@gmail.com",
+   "web": "https://gustecadrums.com/alquiler-backline/",
+   "fuente": "gustecadrums.com"
+  },
+  {
+   "id": "virney",
+   "name": "VIRNEY Backline",
+   "rubros": ["backline"],
+   "zona": "Buenos Aires",
+   "que": "Alquiler de backline. Contacto por Facebook.",
+   "web": "https://www.facebook.com/virneybackline/",
+   "fuente": "facebook.com/virneybackline"
+  },
+  {
+   "id": "hba",
+   "name": "HBA Creative Group (House Buenos Aires)",
+   "rubros": ["sonido", "luces", "pantallas", "escenario"],
+   "zona": "CABA y GBA",
+   "que": "Más de 25 años en eventos sociales: DJ, sonido, iluminación, pantallas y tótems LED, pistas de baile, tarimas y escenografía. Tiene cotizador online.",
+   "web": "https://housebuenosaires.com/alquiler-de-pantallas-led/",
+   "fuente": "housebuenosaires.com"
+  },
+  {
+   "id": "lsproducciones",
+   "name": "LS Producciones",
+   "rubros": ["pantallas", "luces", "sonido", "escenario"],
+   "zona": "CABA, provincia y Pinamar",
+   "que": "Pantallas LED, video wall, sonido, iluminación con PAR y bañadores LED, estructuras y escenarios. Sirve para la temporada en la Costa.",
+   "web": "https://www.lsproducciones.com.ar/",
+   "fuente": "lsproducciones.com.ar"
+  },
+  {
+   "id": "casais",
+   "name": "Casais Técnica para Eventos",
+   "rubros": ["escenario", "pantallas", "sonido", "luces"],
+   "zona": "CABA",
+   "que": "Escenarios modulares, pantallas LED, sonido y luces.",
+   "web": "https://www.ineventos.com/ar/casaistecnicaparaeventos",
+   "fuente": "ineventos.com"
+  },
+  {
+   "id": "dydsistems",
+   "name": "D&D-Sistems",
+   "rubros": ["luces", "sonido", "escenario", "pantallas"],
+   "zona": "CABA",
+   "que": "Más de 30 años: efectos, escenarios, esferas, sonido, iluminación, pantallas y cabinas de DJ.",
+   "web": "https://www.ineventos.com/ar/dydsistems",
+   "fuente": "ineventos.com"
+  },
+  {
+   "id": "groupeffect",
+   "name": "Group Effect",
+   "rubros": ["pantallas"],
+   "zona": "Buenos Aires",
+   "que": "Pantallas LED P2 curvas modulares (módulos de 50 × 50) para interiores.",
+   "web": "https://groupeffect.com.ar/pantallas-led.html",
+   "fuente": "groupeffect.com.ar"
+  },
+  {
+   "id": "eventosconexito",
+   "name": "Eventos con Éxito SA",
+   "rubros": ["sonido", "pantallas"],
+   "zona": "Núñez, CABA",
+   "que": "Equipamiento audiovisual para eventos. Almirante Seguí 2454.",
+   "tel": "1148569899",
+   "fuente": "worldorgs.com"
+  },
+  {
+   "id": "prg",
+   "name": "PRG Argentina",
+   "rubros": ["luces", "sonido", "pantallas"],
+   "zona": "Olivos (a minutos de Villa Martelli)",
+   "que": "Rental grande de producción técnica (4.000 m²). Para shows grandes o si un planner pide producción de nivel alto. Salvador Debenedetti 3895.",
+   "web": "https://www.prg.com/ar",
+   "fuente": "prg.com"
+  },
+  {
+   "id": "maserati",
+   "name": "Paola Maserati Ambientaciones",
+   "rubros": ["pantallas"],
+   "zona": "Buenos Aires",
+   "que": "Ambientación de eventos sociales y corporativos: entelados, alfombrados, escenografías, gráficas y corpóreos. Para fondo de escenario o telón con la marca DODO.",
+   "web": "https://caras.perfil.com/noticias/caras-like/paola-maserati-ambientaciones-en-busca-de-tu-espacio-ideal.phtml",
+   "fuente": "caras.perfil.com"
+  },
+  {
+   "id": "zonaacustica",
+   "name": "Zona Acústica",
+   "rubros": ["service"],
+   "zona": "Caseros",
+   "que": "40 años reparando parlantes y drivers (pro, guitarra y bajo), con bobinas de fabricación propia. Sargento Cabral 1684.",
+   "tel": "1148430080",
+   "email": "info@zonaacustica.com.ar",
+   "web": "https://www.facebook.com/zonaacustica/",
+   "fuente": "facebook.com/zonaacustica"
+  },
+  {
+   "id": "teslab",
+   "name": "Teslab",
+   "rubros": ["service"],
+   "zona": "Ramos Mejía",
+   "que": "Service hecho por y para músicos: interfaces, consolas, controladores y equipos analógicos y digitales. Revisión y presupuesto sin costo.",
+   "web": "https://www.teslab-service.com.ar/",
+   "fuente": "teslab-service.com.ar"
+  },
+  {
+   "id": "superservice",
+   "name": "SuperService SRL",
+   "rubros": ["service"],
+   "zona": "Belgrano / Colegiales, CABA",
+   "que": "Service de audio profesional: potencias, bafles y subwoofers activos y pasivos. Garantía escrita, banco de prueba e importan repuestos.",
+   "web": "https://www.superservicesrl.com.ar/service-bafles.htm",
+   "fuente": "superservicesrl.com.ar"
+  },
+  {
+   "id": "hitrack",
+   "name": "Hi-Track",
+   "rubros": ["service"],
+   "zona": "Belgrano, CABA",
+   "que": "Reparación integral de parlantes (cono, suspensión, bobinado, tweeter) y de potencias y previos. Av. Cabildo 1587.",
+   "tel": "1132069836",
+   "web": "https://hi-track.com.ar",
+   "fuente": "reparar.org"
+  },
+  {
+   "id": "todoaudio",
+   "name": "TodoAudio",
+   "rubros": ["service"],
+   "zona": "Retiran en CABA y GBA",
+   "que": "Service de audio, incluidos instrumentos musicales. Retiran el equipo y lo devuelven reparado.",
+   "tel": "1153765686",
+   "web": "https://www.audiocabaygba.com/",
+   "fuente": "audiocabaygba.com"
+  },
+  {
+   "id": "mlbackline",
+   "name": "Mercado Libre · alquiler de backline",
+   "rubros": ["backline", "sonido"],
+   "zona": "CABA y GBA",
+   "que": "Particulares y pequeños rentals que alquilan baterías, amplificadores y sonido. Plan C para una urgencia: revisar el equipo antes de pagar.",
+   "web": "https://listado.mercadolibre.com.ar/alquiler-de-backline",
+   "fuente": "mercadolibre.com.ar"
+  }
+ ]
+}
