@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-16T01:50:11Z",
+ "actualizado": "2026-11-16T04:50:41Z",
  "items": [
   {
    "id": "ew-party-bands-4-5-6",
@@ -126,6 +126,20 @@
    "score": 6,
    "foundAt": "2026-11-15",
    "source": "stagelync.com"
+  },
+  {
+   "id": "rce-live-music-perfil",
+   "title": "Royal Caribbean Entertainment: perfil online de música en vivo",
+   "org": "Royal Caribbean Entertainment",
+   "kind": "crucero",
+   "country": "Internacional (online)",
+   "deadline": "",
+   "url": "https://royalcaribbeanentertainment.com/livemusic/upcoming-auditions/",
+   "summary": "Royal Caribbean audiciona músicos todo el año en más de 60 ciudades y acepta postulaciones online armando un perfil con foto, videos en vivo y CV. No encontramos fechas en Sudamérica para 2027.",
+   "action": "Crear el perfil online con videos en vivo de la banda y consultar si toman grupos completos o solo músicos individuales.",
+   "score": 5,
+   "foundAt": "2026-11-16",
+   "source": "royalcaribbeanentertainment.com"
   }
  ]
 }
