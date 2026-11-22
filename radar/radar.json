@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-22T04:50:22Z",
+ "actualizado": "2026-11-22T07:50:29Z",
  "items": [
   {
    "id": "ew-party-bands-4-5-6",
@@ -140,6 +140,20 @@
    "score": 6,
    "foundAt": "2026-11-18",
    "source": "stagelync.com"
+  },
+  {
+   "id": "enjoy-punta-blend-bar",
+   "title": "Música en vivo en Enjoy Punta del Este (Blend Bar)",
+   "org": "Enjoy Punta del Este",
+   "kind": "hotel",
+   "country": "Uruguay",
+   "deadline": "",
+   "url": "https://www.montevideo.com.uy/Negocios-y-Tendencias/Enjoy-Punta-del-Este-combina-gastronomia-shows-y-promociones-mundialistas-uc963969",
+   "summary": "El hotel-casino Enjoy de Punta del Este tiene shows de música en vivo todas las noches en su Blend Bar. No hay una convocatoria publicada, pero es un lugar para ofrecer la banda de cara al verano.",
+   "action": "Mandarle al área de entretenimiento de Enjoy un video en vivo y la propuesta de la banda para la temporada 2026-2027.",
+   "score": 5,
+   "foundAt": "2026-11-22",
+   "source": "montevideo.com.uy"
   }
  ]
 }
