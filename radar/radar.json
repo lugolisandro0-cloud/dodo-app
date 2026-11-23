@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-23T01:50:10Z",
+ "actualizado": "2026-11-23T04:50:27Z",
  "items": [
   {
    "id": "ew-party-bands-4-5-6",
@@ -42,6 +42,20 @@
    "score": 8,
    "foundAt": "2026-11-15",
    "source": "entertainersworldwidejobs.com"
+  },
+  {
+   "id": "hotelga-2027",
+   "title": "Hotelga 2027: feria de hotelería y gastronomía",
+   "org": "Messe Frankfurt Argentina / FEHGRA / AHT",
+   "kind": "otro",
+   "country": "Argentina",
+   "deadline": "2027-09-01",
+   "url": "https://hotelga.ar.messefrankfurt.com",
+   "summary": "La feria B2B más grande de hoteles y gastronomía del país vuelve a La Rural del 1 al 3 de septiembre de 2027. Es buena para conocer gerentes de hoteles y salones que contratan música en vivo.",
+   "action": "Agendar la fecha, acreditarse como visitante cuando abra y llevar material de prensa para hoteles y salones.",
+   "score": 4,
+   "foundAt": "2026-11-23",
+   "source": "mercado.com.ar"
   },
   {
    "id": "rws-prescreen-ba",
