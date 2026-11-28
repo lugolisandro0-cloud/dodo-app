@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-27T22:50:04Z",
+ "actualizado": "2026-11-28T01:50:06Z",
  "items": [
   {
    "id": "ew-party-bands-4-5-6",
@@ -182,6 +182,20 @@
    "score": 5,
    "foundAt": "2026-11-22",
    "source": "cast-a-way.com"
+  },
+  {
+   "id": "rossetti-lounge-ensembles",
+   "title": "Rossetti Cruise Entertainment: ensambles en vivo",
+   "org": "Rossetti Cruise Entertainment",
+   "kind": "crucero",
+   "country": "Internacional",
+   "deadline": "",
+   "url": "https://rce.factorialhr.com/job_posting/live-musicians-lounge-ensembles-219131",
+   "summary": "Agencia que coloca músicos en cruceros de lujo tiene abierta una búsqueda de músicos y ensambles en vivo con postulación online; acepta grupos propios, aunque el perfil apunta más a lounge que a party band.",
+   "action": "Postular a DODO como ensamble en su portal con video en vivo y repertorio, aclarando formato de 4-5 integrantes.",
+   "score": 5,
+   "foundAt": "2026-11-28",
+   "source": "rce.factorialhr.com"
   }
  ]
 }
